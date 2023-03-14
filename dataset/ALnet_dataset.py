@@ -28,8 +28,8 @@ class ALnet_dataset(data.Dataset):
         self.input_mfcc_all = np.concatenate(self.mfcc_seq, axis=0)      # (43225, 28, 12)
         self.landmark_all = np.concatenate(self.landmark_seq, axis=0)    # (43225, 136)
 
-        # self.landmark_norm = transforms.ToTensor()(self.landmark_all).squeeze()
-        self.landmark_norm = self.landmark_all / 255
+        self.landmark_norm = transforms.ToTensor()(self.landmark_all).squeeze()
+        # self.landmark_norm = self.landmark_all / 255
         
     def __getitem__(self, index):
         
